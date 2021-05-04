@@ -1,0 +1,11 @@
+/.vscode
+
+/app/cache
+/app/circuitsim.db
+/frontend/dist
+/frontend/pkg
+/frontend/node_modules
+/frontend/package-lock.json
+/wasm-pack.log
+/target
+/Cargo.lock

@@ -1,0 +1,326 @@
+
+html, body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background: #1b1a1d;
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	overflow: hidden;
+
+	&.editor-running {
+		.if-editor-running {
+			display: block;
+		}
+	}
+
+	.if-editor-running {
+		display: none;
+	}
+}
+
+
+.editor-ui-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	> .editor-ui-top-bar {
+		display: flex;
+		background-color: #0b0a0d;
+		height: 40px;
+		color: white;
+
+		.top-bar-dropdown {
+			// display: flex;
+			display: none;
+
+			&:hover .dropdown-container {
+				display: flex;
+			}
+
+			.dropdown-button {
+				width: 30px;
+				margin: 5px;
+				background-color: #333;
+				cursor: pointer;
+			}
+
+			.dropdown-container {
+				display: none;
+				position: absolute;
+				width: 150px;
+				height: 50px;
+				flex-direction: column;
+				top: 40px;
+				right: 0px;
+				background-color: #333;
+				z-index: 999;
+
+				.dropdown-item {
+					padding: 2px 10px;
+				}
+			}
+		}
+
+		.top-bar-row {
+			display: flex;
+			flex-direction: row;
+			flex-grow: 1;
+
+			.top-bar-item-container {
+				padding: 5px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	> .editor-ui-bottom {
+		background-color: #1b1a1d;
+		flex-direction: row;
+		flex-grow: 1;
+		display: flex;
+
+		> .editor-ui-side-bar {
+			display: flex;
+			flex-direction: column;
+
+			width: 240px;
+			background-color: #0b0a0d;
+
+			> .editor-ui-side-bar-top {
+				flex-grow: 1;
+			}
+
+			> .editor-ui-side-bar-bottom {
+				// height: 66px;
+				padding: 2px;
+			}
+		}
+
+		> .editor-ui-editor-container {
+			flex-grow: 1;
+
+			canvas {
+				position: absolute;
+			}
+		}
+
+	}
+}
+
+.item-container {
+	margin-bottom: 5px;
+
+	&.connection-colors {
+		.item-list {
+			> .item {
+				cursor: pointer;
+
+				div {
+					width: 24px;
+					height: 24px;
+				}
+			}
+		}
+	}
+
+	&.item-vertical {
+		.item-list {
+			> .item {
+				cursor: pointer;
+				float: none !important;
+			}
+		}
+	}
+
+	&.minimized {
+		.container-inner {
+			display: none;
+		}
+	}
+
+	.container-topbar {
+		background-color: #3c3c3c;
+		display: flex;
+
+		.topbar-min-max {
+			width: 27px;
+			background-color: #242424;
+			cursor: pointer;
+		}
+
+		.topbar-title {
+			padding: 4px;
+			flex-grow: 1;
+			color: white;
+		}
+	}
+
+	.container-inner {
+		margin: 4px;
+		background-color: #333;
+		border: 1px solid #013709;
+
+		.item-list {
+			list-style: none;
+			margin-block: 0;
+			padding-inline: 0;
+			display: inline-block;
+			width: 100%;
+
+			> .item {
+				float: left;
+				padding: 2px;
+				color: #e1e1e1;
+
+				&:hover {
+					background-color: #252525;
+				}
+			}
+		}
+	}
+}
+
+
+input {
+	background-color: #1e1e1e;
+	color: white;
+	margin: 0;
+	padding: 4px;
+	font-size: 16px;
+	border-radius: 4px;
+	border: none;
+	inline-size: auto;
+}
+
+.button {
+	padding: 5px 8px;
+	display: inline-block;
+	background-color: #242424;
+	color: white;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #1b1b1b;
+	}
+}
+
+
+body > .notification-container {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	right: 5px;
+	bottom: 5px;
+	z-index: 9999;
+
+	> .notification {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+
+		background-color: #0b0a0d;
+		border: 1px solid #151518;
+
+		max-width: 25em;
+		min-width: 10em;
+		cursor: pointer;
+		flex-grow: 0;
+
+		&.error {
+			background-color: #531111;
+			border: 1px solid #270909;
+		}
+
+		&.info {
+			background-color: #534d10;
+			border: 1px solid #312e0b;
+		}
+
+		&.success {
+			background-color: #105316;
+			border: 1px solid #0b3113;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+
+		.title-bar {
+			.title {
+				flex-grow: 1;
+				font-size: 18px;
+			}
+
+			.close-button {
+				color: #d41818;
+				padding: 3px 5px;
+
+				&:hover {
+					color: #941414;
+				}
+			}
+		}
+
+		.expansion {
+			display: none;
+			flex-direction: column;
+
+			&.show {
+				display: flex;
+			}
+
+			> .description {
+				font-size: 13px;
+			}
+
+			> .cause {
+				font-size: 10px;
+			}
+
+			> .creation {
+				font-size: 10px;
+			}
+		}
+	}
+}
+
+
+body > .popup {
+	position: absolute;
+	display: flex;
+	background-color: rgba(0, 0, 0, 0.39);
+
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	z-index: 99;
+
+	.popup-container {
+		background-color: #A6A6A6;
+		height: auto;
+		width: auto;
+		margin: auto;
+		padding: 8px;
+		border-radius: 5px;
+
+		.row {
+			margin-bottom: 5px;
+			margin-top: 5px;
+
+			.title {
+				display: block;
+				font-size: 19px;
+				margin-bottom: 5px;
+			}
+
+			.input {
+				//
+			}
+		}
+	}
+}

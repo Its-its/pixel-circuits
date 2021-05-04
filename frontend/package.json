@@ -1,0 +1,19 @@
+{
+  "author": "You <you@example.com>",
+  "name": "rust-webpack-template",
+  "version": "0.1.0",
+  "scripts": {
+    "run": "webpack",
+    "build": "webpack --watch",
+    "start": "rimraf dist pkg && webpack-dev-server -d",
+    "test": "cargo test && wasm-pack test --headless"
+  },
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^5.0.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0",
+    "rimraf": "^3.0.0"
+  }
+}

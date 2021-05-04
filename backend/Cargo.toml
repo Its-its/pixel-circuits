@@ -1,0 +1,31 @@
+[package]
+name = "circuit-sim-backend"
+version = "0.1.0"
+authors = ["Me"]
+edition = "2018"
+
+[dependencies]
+actix-web = "2.0.0"
+actix-rt = "1.1.1"
+actix-files = "0.2.2"
+actix-session = "0.3.0"
+
+pwhash = "1.0.0"
+rand = "0.8.3"
+bytes = "1.0.1"
+futures = "0.3.12"
+env_logger = "0.8.2"
+chrono =  "0.4.19"
+
+serde = "1.0.123"
+serde_json = "1.0.62"
+serde_derive = "1.0.123"
+
+circuit-sim-common = { path = "../common" }
+
+
+# Database
+diesel = { version = "1.4.5", features = ["sqlite", "extras"] }
+
+# Only here for bundled feature. Using version from diesel.
+libsqlite3-sys = { version = "0.9.1", features = ["bundled"] }

@@ -1,0 +1,12 @@
+[package]
+name = "circuit-sim-common"
+version = "0.1.0"
+authors = ["Me"]
+edition = "2018"
+
+[dependencies]
+serde = "1.0.123"
+serde_json = "1.0.62"
+serde_derive = "1.0.123"
+
+wasm-bindgen = { version = "0.2.70", features = ["serde-serialize"] }
