@@ -19,7 +19,7 @@ The web server will be started on port `8080`
 * The `scripts` folder contains your scripts to run and build each process.
 
 * The `backend` folder contains the web server Rust code.
-*
+
 * The `common` folder contains code which is used on both the backend and frontend.
 
 * The `frontend` folder contains front end Rust code.
